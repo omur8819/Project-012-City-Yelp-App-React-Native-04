@@ -1,21 +1,30 @@
 import axios from 'axios';
-import React, { useState } from 'react';
-import {SafeAreaView, View, Text} from 'react-native';
+import React, { useState, useEffect } from 'react';
+import {SafeAreaView, View, Text, FlatList} from 'react-native';
 
 const CityList = (props) => {
     const [cityList, setCityList] = useState([]);
 
 // ASNC-AWAIT
     const fetchCityData = async () => {
-        const {data} = await axios.get("https://opentable.herokuapp.com/api/cities");
-        console.log(data);
-
+        const { data } = await axios.get("https://opentable.herokuapp.com/api/cities");
+        setCityList(data.cities)
     }
+
+    useEffect(() => {
+        fetchCityData();
+    }, [])
+
+    const renderCities = ({item}) => <Text>{item}</Text>
 
     return(
     <SafeAreaView>
         <View>
-            <Text>CityList</Text>
+            <FlatList 
+                keyExtractor={(_, index) => index.toString()}
+                data={cityList}
+                renderItem={renderCities}
+            />
         </View>
     </SafeAreaView>
     )
