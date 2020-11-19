@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { SafeAreaView, View, Text } from 'react-native';
 
+import { RestaurantItem } from './index';
+
 const RestaurantList = (props) => {
     const { selectedCity } = props.route.params
 
