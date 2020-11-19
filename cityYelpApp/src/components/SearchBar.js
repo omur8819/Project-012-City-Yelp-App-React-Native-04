@@ -5,7 +5,8 @@ const SearchBar = (props) => {
     return (
         <View style={styles.container}>
             <TextInput
-
+                placeholder={props.placeholder}
+                onChangeText={(value) => props.onSearch(value)}
             />
         </View>
     )
@@ -19,8 +20,4 @@ const styles = StyleSheet.create({
         padding: 10,
         borderRadius: 5,
     },
-    text: {
-        fontSize: 20,
-        fontWeight: '300'
-    }
 })
