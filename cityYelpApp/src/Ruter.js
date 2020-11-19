@@ -1,13 +1,32 @@
 import React from 'react';
-import { SafeAreaView, View, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+const Stack = createStackNavigator();
+
+import { CityList, RestaurantList, RestaurantDetail } from './pages';
 
 const Router = () => {
     return (
-        <SafeAreaView>
-            <View>
-                <Text>Router</Text>
-            </View>
-        </SafeAreaView>
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen 
+                    name="Cities" 
+                    component={CityList} 
+                    options={{ headerShown: false }}
+                />
+                <Stack.Screen 
+                    name="Restaurants" 
+                    component={RestaurantList} 
+                    options={{headerShown: false }}
+                />
+                <Stack.Screen 
+                    name="Details" 
+                    component={RestaurantDetail} 
+                    options={{headerShown: false }}
+                />
+            </Stack.Navigator>
+        </NavigationContainer>
     )
 }
 

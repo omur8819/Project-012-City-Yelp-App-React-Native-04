@@ -11,4 +11,4 @@ const RestaurantDetail = (props) => {
     )
 }
 
-export {RestaurantDetail};
+export { RestaurantDetail };
