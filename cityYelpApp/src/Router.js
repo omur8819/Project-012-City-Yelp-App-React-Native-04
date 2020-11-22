@@ -13,6 +13,7 @@ const Router = () => {
                 <Stack.Screen
                     name="Cities"
                     component={CityList}
+                    options={{headerShown: false}}
                 />
                 <Stack.Screen
                     name="Restaurants"
